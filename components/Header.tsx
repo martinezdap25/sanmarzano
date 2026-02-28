@@ -12,10 +12,10 @@ export function Header() {
     <header className="sticky top-0 z-40 bg-brand-cream border-b border-brand-cream-dark shadow-sm">
       <div className="max-w-4xl mx-auto px-4 h-16 grid grid-cols-3 items-center">
 
-        {/* Teléfono — sin padding izquierdo extra */}
+        {/* Teléfono */}
         <a
           href={PHONE_TEL}
-          className="flex items-center gap-1.5 text-brand-dark hover:text-brand-red transition-colors duration-150 text-sm font-medium"
+          className="flex items-center gap-1.5 p-2 -ml-2 rounded-xl text-brand-dark hover:text-brand-red transition-colors duration-150 text-sm font-medium"
           aria-label="Llamar al local"
         >
           <Phone className="w-4 h-4" />
@@ -32,11 +32,11 @@ export function Header() {
           </div>
         </Link>
 
-        {/* Carrito — sin padding derecho extra */}
+        {/* Carrito */}
         <div className="flex justify-end">
           <button
             onClick={openCart}
-            className="relative pl-2 py-2 text-brand-dark hover:text-brand-red transition-colors duration-150"
+            className="relative p-2 -mr-2 rounded-xl text-brand-dark hover:text-brand-red transition-colors duration-150"
             aria-label={`Abrir carrito (${itemCount} productos)`}
           >
             <ShoppingCart className="w-6 h-6" strokeWidth={1.5} />
