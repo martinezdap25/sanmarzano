@@ -18,11 +18,17 @@ export function Hero() {
 
         {/* Etiqueta superior */}
         <div className="flex items-center justify-center gap-3 mb-5">
-          <div className="h-px w-10 bg-brand-red opacity-50" />
-          <span className="text-brand-red text-xs tracking-[0.3em] uppercase font-semibold">
-            Pizzería Napolitana · Santiago del Estero
-          </span>
-          <div className="h-px w-10 bg-brand-red opacity-50" />
+          <div className="hidden sm:block h-px w-10 bg-brand-red opacity-50 shrink-0" />
+          <div className="flex flex-col sm:flex-row items-center gap-0.5 sm:gap-2">
+            <span className="text-brand-red text-[10px] tracking-[0.15em] sm:text-xs sm:tracking-[0.3em] uppercase font-semibold">
+              Pizzería Napolitana
+            </span>
+            <span className="hidden sm:inline text-brand-red/50">·</span>
+            <span className="text-brand-red text-[10px] tracking-[0.15em] sm:text-xs sm:tracking-[0.3em] uppercase font-semibold">
+              Santiago del Estero
+            </span>
+          </div>
+          <div className="hidden sm:block h-px w-10 bg-brand-red opacity-50 shrink-0" />
         </div>
 
         {/* Títulos */}
