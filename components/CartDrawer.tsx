@@ -1,10 +1,11 @@
 'use client';
 
-import { ShoppingCart, Store, Bike, X } from 'lucide-react';
+import { ShoppingCart, Store, Bike, X, MapPin, Clock, ExternalLink } from 'lucide-react';
 import { useCart } from '@/hooks/useCart';
 import { CartItem } from './CartItem';
 import { OrderSummary } from './OrderSummary';
 import { generateWhatsAppUrl } from '@/utils/generateWhatsAppMessage';
+import { STORE_ADDRESS, STORE_HOURS, STORE_MAPS_URL } from '@/lib/constants';
 
 export function CartDrawer() {
   const {
@@ -15,15 +16,19 @@ export function CartDrawer() {
     itemCount,
     deliveryMode,
     notes,
+    address,
     setDeliveryMode,
     setNotes,
+    setAddress,
     clearCart,
   } = useCart();
 
   const handleWhatsApp = () => {
     if (items.length === 0) return;
-    const url = generateWhatsAppUrl(items, deliveryMode, notes, total);
+    const url = generateWhatsAppUrl(items, deliveryMode, notes, total, address);
     window.open(url, '_blank', 'noopener,noreferrer');
+    closeCart();
+    setTimeout(clearCart, 350);
   };
 
   return (
@@ -137,6 +142,45 @@ export function CartDrawer() {
                 </button>
               </div>
             </div>
+
+            {/* Info condicional según modalidad */}
+            {deliveryMode === 'pickup' ? (
+              <a
+                href={STORE_MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 bg-brand-green/10 border border-brand-green/20 rounded-xl px-3.5 py-3 group"
+              >
+                <MapPin className="w-4 h-4 text-brand-green mt-0.5 shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs font-semibold text-brand-dark leading-snug">
+                    {STORE_ADDRESS}
+                  </p>
+                  <p className="text-xs text-gray-500 mt-0.5 flex items-center gap-1">
+                    <Clock className="w-3 h-3" />
+                    {STORE_HOURS}
+                  </p>
+                </div>
+                <ExternalLink className="w-3.5 h-3.5 text-brand-green/50 group-hover:text-brand-green shrink-0 mt-0.5 transition-colors duration-150" />
+              </a>
+            ) : (
+              <div>
+                <label
+                  htmlFor="cart-address"
+                  className="text-xs font-semibold text-brand-dark uppercase tracking-wide mb-2 block"
+                >
+                  Tu dirección de entrega
+                </label>
+                <input
+                  id="cart-address"
+                  type="text"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  placeholder="Calle, número, piso/depto..."
+                  className="w-full bg-white border border-brand-cream-dark rounded-xl px-3 py-2.5 text-sm text-brand-dark placeholder:text-gray-400 focus:outline-none focus:border-brand-green transition-colors duration-150"
+                />
+              </div>
+            )}
 
             {/* Notas */}
             <div>

@@ -7,6 +7,7 @@ export function generateWhatsAppUrl(
   deliveryMode: DeliveryMode,
   notes: string,
   total: number,
+  address?: string,
 ): string {
   let message = 'Hola! Quiero hacer el siguiente pedido:\n\n';
 
@@ -16,6 +17,10 @@ export function generateWhatsAppUrl(
 
   message += `\nTotal: ${formatCurrency(total)}`;
   message += `\nModalidad: ${deliveryMode === 'delivery' ? 'Envío a domicilio' : 'Retiro en local'}`;
+
+  if (deliveryMode === 'delivery' && address?.trim()) {
+    message += `\nDirección de entrega: ${address.trim()}`;
+  }
 
   if (notes.trim()) {
     message += `\nNotas: ${notes.trim()}`;

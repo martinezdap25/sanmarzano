@@ -17,6 +17,7 @@ interface CartState {
   isOpen: boolean;
   deliveryMode: DeliveryMode;
   notes: string;
+  address: string;
 }
 
 // ── Actions ────────────────────────────────────────────────────────────────
@@ -29,7 +30,8 @@ type CartAction =
   | { type: 'OPEN_CART' }
   | { type: 'CLOSE_CART' }
   | { type: 'SET_DELIVERY_MODE'; payload: DeliveryMode }
-  | { type: 'SET_NOTES'; payload: string };
+  | { type: 'SET_NOTES'; payload: string }
+  | { type: 'SET_ADDRESS'; payload: string };
 
 // ── Reducer ────────────────────────────────────────────────────────────────
 
@@ -97,6 +99,9 @@ function cartReducer(state: CartState, action: CartAction): CartState {
     case 'SET_NOTES':
       return { ...state, notes: action.payload };
 
+    case 'SET_ADDRESS':
+      return { ...state, address: action.payload };
+
     default:
       return state;
   }
@@ -109,6 +114,7 @@ interface CartContextValue {
   isOpen: boolean;
   deliveryMode: DeliveryMode;
   notes: string;
+  address: string;
   total: number;
   itemCount: number;
   addItem: (product: Product) => void;
@@ -119,6 +125,7 @@ interface CartContextValue {
   closeCart: () => void;
   setDeliveryMode: (mode: DeliveryMode) => void;
   setNotes: (notes: string) => void;
+  setAddress: (address: string) => void;
 }
 
 const initialState: CartState = {
@@ -126,6 +133,7 @@ const initialState: CartState = {
   isOpen: false,
   deliveryMode: 'pickup',
   notes: '',
+  address: '',
 };
 
 export const CartContext = createContext<CartContextValue | null>(null);
@@ -166,6 +174,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
     [],
   );
 
+  const setAddress = useCallback(
+    (address: string) => dispatch({ type: 'SET_ADDRESS', payload: address }),
+    [],
+  );
+
   const total = useMemo(
     () =>
       state.items.reduce(
@@ -193,6 +206,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       closeCart,
       setDeliveryMode,
       setNotes,
+      setAddress,
     }),
     [
       state,
@@ -206,6 +220,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       closeCart,
       setDeliveryMode,
       setNotes,
+      setAddress,
     ],
   );
 
