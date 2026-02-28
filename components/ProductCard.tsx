@@ -27,7 +27,7 @@ export function ProductCard({ product }: ProductCardProps) {
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-brand-cream-dark flex flex-col">
       {/* Imagen */}
-      <div className="relative w-full aspect-video bg-brand-cream-dark overflow-hidden flex-shrink-0">
+      <div className="relative w-full aspect-video bg-brand-cream-dark overflow-hidden shrink-0">
         {!imgError ? (
           <Image
             src={product.image}
@@ -68,13 +68,13 @@ export function ProductCard({ product }: ProductCardProps) {
           {quantity === 0 ? (
             <button
               onClick={() => addItem(product)}
-              className="bg-brand-green text-white text-xs font-semibold px-3 py-1.5 rounded-xl hover:bg-opacity-90 active:scale-95 transition-all duration-150 flex items-center gap-1 flex-shrink-0"
+              className="bg-brand-green text-white text-xs font-semibold px-3 py-1.5 rounded-xl hover:bg-opacity-90 active:scale-95 transition-all duration-150 flex items-center gap-1 shrink-0"
             >
               <Plus className="w-3 h-3" strokeWidth={3} />
               Agregar
             </button>
           ) : (
-            <div className="flex items-center gap-1 flex-shrink-0">
+            <div className="flex items-center gap-1 shrink-0">
               <button
                 onClick={() => updateQuantity(product.id, quantity - 1)}
                 className="w-7 h-7 rounded-lg bg-brand-cream-dark text-brand-dark flex items-center justify-center hover:bg-brand-red hover:text-white active:scale-95 transition-all duration-150"

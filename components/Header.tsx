@@ -41,7 +41,7 @@ export function Header() {
           <ShoppingCart className="w-6 h-6" strokeWidth={1.5} />
 
           {itemCount > 0 && (
-            <span className="absolute -top-0.5 -right-0.5 bg-brand-red text-white text-[10px] font-bold rounded-full min-w-[18px] h-[18px] flex items-center justify-center px-0.5">
+            <span className="absolute -top-0.5 -right-0.5 bg-brand-red text-white text-[10px] font-bold rounded-full min-w-4.5 h-4.5 flex items-center justify-center px-0.5">
               {itemCount > 9 ? '9+' : itemCount}
             </span>
           )}

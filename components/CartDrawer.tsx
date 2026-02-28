@@ -47,12 +47,12 @@ export function CartDrawer() {
         aria-label="Carrito de compras"
       >
         {/* Handle de arrastre */}
-        <div className="flex justify-center pt-3 pb-2 flex-shrink-0">
+        <div className="flex justify-center pt-3 pb-2 shrink-0">
           <div className="w-10 h-1 bg-brand-cream-dark rounded-full" />
         </div>
 
         {/* Encabezado */}
-        <div className="flex items-center justify-between px-5 pb-3 border-b border-brand-cream-dark flex-shrink-0">
+        <div className="flex items-center justify-between px-5 pb-3 border-b border-brand-cream-dark shrink-0">
           <div>
             <h2 className="font-serif font-bold text-brand-dark text-lg leading-tight">
               Tu Pedido
@@ -104,7 +104,7 @@ export function CartDrawer() {
 
         {/* Footer */}
         {items.length > 0 && (
-          <div className="px-5 pt-4 pb-6 border-t border-brand-cream-dark flex-shrink-0 space-y-4">
+          <div className="px-5 pt-4 pb-6 border-t border-brand-cream-dark shrink-0 space-y-4">
 
             {/* Resumen */}
             <OrderSummary items={items} total={total} />

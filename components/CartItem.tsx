@@ -16,7 +16,7 @@ export function CartItem({ item }: CartItemProps) {
   return (
     <div className="flex items-center gap-3 py-3.5 border-b border-brand-cream-dark last:border-0">
       {/* Indicador de categoría */}
-      <div className="w-10 h-10 rounded-xl bg-brand-cream-dark flex-shrink-0 flex items-center justify-center text-brand-red">
+      <div className="w-10 h-10 rounded-xl bg-brand-cream-dark shrink-0 flex items-center justify-center text-brand-red">
         {product.category === 'pizzas'
           ? <Pizza className="w-5 h-5" />
           : product.category === 'focaccias'
@@ -33,7 +33,7 @@ export function CartItem({ item }: CartItemProps) {
       </div>
 
       {/* Stepper */}
-      <div className="flex items-center gap-1.5 flex-shrink-0">
+      <div className="flex items-center gap-1.5 shrink-0">
         <button
           onClick={() => updateQuantity(product.id, quantity - 1)}
           className="w-7 h-7 rounded-lg bg-brand-cream-dark text-brand-dark flex items-center justify-center hover:bg-brand-red hover:text-white active:scale-95 transition-all duration-150"
@@ -54,7 +54,7 @@ export function CartItem({ item }: CartItemProps) {
       </div>
 
       {/* Subtotal + quitar */}
-      <div className="text-right flex-shrink-0 min-w-[4.5rem]">
+      <div className="text-right shrink-0 min-w-18">
         <p className="font-bold text-brand-dark text-sm">
           {formatCurrency(product.price * quantity)}
         </p>
