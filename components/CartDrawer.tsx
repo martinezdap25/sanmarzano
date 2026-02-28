@@ -1,5 +1,6 @@
 'use client';
 
+import { ShoppingCart, Store, Bike, X } from 'lucide-react';
 import { useCart } from '@/hooks/useCart';
 import { CartItem } from './CartItem';
 import { OrderSummary } from './OrderSummary';
@@ -77,19 +78,7 @@ export function CartDrawer() {
               className="p-1.5 rounded-xl bg-brand-cream-dark text-brand-dark hover:bg-brand-red hover:text-white transition-all duration-150"
               aria-label="Cerrar carrito"
             >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <X className="w-4 h-4" strokeWidth={2.5} />
             </button>
           </div>
         </div>
@@ -98,7 +87,7 @@ export function CartDrawer() {
         <div className="flex-1 overflow-y-auto px-5 py-1">
           {items.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-12 text-center">
-              <div className="text-5xl mb-4 opacity-30">🛒</div>
+              <ShoppingCart className="w-12 h-12 mb-4 text-brand-dark opacity-20" strokeWidth={1} />
               <p className="font-semibold text-brand-dark text-sm mb-1">
                 Tu carrito está vacío
               </p>
@@ -128,23 +117,23 @@ export function CartDrawer() {
               <div className="grid grid-cols-2 gap-2">
                 <button
                   onClick={() => setDeliveryMode('pickup')}
-                  className={`py-2.5 rounded-xl text-xs font-semibold border-2 transition-all duration-150 ${
+                  className={`py-2.5 rounded-xl text-xs font-semibold border-2 transition-all duration-150 flex items-center justify-center gap-1.5 ${
                     deliveryMode === 'pickup'
                       ? 'border-brand-green bg-brand-green text-white'
                       : 'border-brand-cream-dark bg-white text-brand-dark hover:border-brand-green'
                   }`}
                 >
-                  🏪 Retiro en local
+                  <Store className="w-3.5 h-3.5" /> Retiro en local
                 </button>
                 <button
                   onClick={() => setDeliveryMode('delivery')}
-                  className={`py-2.5 rounded-xl text-xs font-semibold border-2 transition-all duration-150 ${
+                  className={`py-2.5 rounded-xl text-xs font-semibold border-2 transition-all duration-150 flex items-center justify-center gap-1.5 ${
                     deliveryMode === 'delivery'
                       ? 'border-brand-green bg-brand-green text-white'
                       : 'border-brand-cream-dark bg-white text-brand-dark hover:border-brand-green'
                   }`}
                 >
-                  🛵 Envío a domicilio
+                  <Bike className="w-3.5 h-3.5" /> Envío a domicilio
                 </button>
               </div>
             </div>

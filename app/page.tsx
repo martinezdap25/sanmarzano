@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { UtensilsCrossed } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { ProductList } from '@/components/ProductList';
@@ -36,19 +37,7 @@ export default function HomePage() {
             href="/menu"
             className="inline-flex items-center gap-2 bg-brand-green text-white font-semibold px-8 py-3.5 rounded-full hover:bg-opacity-90 active:scale-95 transition-all duration-150 text-sm tracking-wide"
           >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-              />
-            </svg>
+            <UtensilsCrossed className="w-4 h-4" />
             Ver Menú Completo
           </Link>
         </div>

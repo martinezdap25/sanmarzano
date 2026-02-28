@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { Plus, Minus } from 'lucide-react';
 import { useCart } from '@/hooks/useCart';
 import { formatCurrency } from '@/utils/formatCurrency';
 import type { Product, Category } from '@/types/product';
@@ -39,7 +40,7 @@ export function ProductCard({ product }: ProductCardProps) {
           />
         ) : (
           <div
-            className={`absolute inset-0 bg-gradient-to-br ${categoryGradients[product.category]} flex items-end p-2`}
+            className={`absolute inset-0 bg-linear-to-br ${categoryGradients[product.category]} flex items-end p-2`}
           >
             <span className="text-white/70 text-xs font-medium line-clamp-1">
               {product.name}
@@ -69,39 +70,27 @@ export function ProductCard({ product }: ProductCardProps) {
               onClick={() => addItem(product)}
               className="bg-brand-green text-white text-xs font-semibold px-3 py-1.5 rounded-xl hover:bg-opacity-90 active:scale-95 transition-all duration-150 flex items-center gap-1 flex-shrink-0"
             >
-              <svg
-                className="w-3 h-3"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={3}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 4.5v15m7.5-7.5h-15"
-                />
-              </svg>
+              <Plus className="w-3 h-3" strokeWidth={3} />
               Agregar
             </button>
           ) : (
             <div className="flex items-center gap-1 flex-shrink-0">
               <button
                 onClick={() => updateQuantity(product.id, quantity - 1)}
-                className="w-7 h-7 rounded-lg bg-brand-cream-dark text-brand-dark flex items-center justify-center hover:bg-brand-red hover:text-white active:scale-95 transition-all duration-150 font-bold text-base leading-none"
+                className="w-7 h-7 rounded-lg bg-brand-cream-dark text-brand-dark flex items-center justify-center hover:bg-brand-red hover:text-white active:scale-95 transition-all duration-150"
                 aria-label="Quitar uno"
               >
-                −
+                <Minus className="w-3.5 h-3.5" strokeWidth={2.5} />
               </button>
               <span className="w-6 text-center font-bold text-brand-dark text-sm">
                 {quantity}
               </span>
               <button
                 onClick={() => updateQuantity(product.id, quantity + 1)}
-                className="w-7 h-7 rounded-lg bg-brand-green text-white flex items-center justify-center hover:bg-opacity-90 active:scale-95 transition-all duration-150 font-bold text-base leading-none"
+                className="w-7 h-7 rounded-lg bg-brand-green text-white flex items-center justify-center hover:bg-opacity-90 active:scale-95 transition-all duration-150"
                 aria-label="Agregar uno más"
               >
-                +
+                <Plus className="w-3.5 h-3.5" strokeWidth={2.5} />
               </button>
             </div>
           )}

@@ -1,5 +1,6 @@
 'use client';
 
+import { Pizza, Wheat, UtensilsCrossed, Plus, Minus } from 'lucide-react';
 import { useCart } from '@/hooks/useCart';
 import { formatCurrency } from '@/utils/formatCurrency';
 import type { CartItem as CartItemType } from '@/types/cart';
@@ -15,12 +16,12 @@ export function CartItem({ item }: CartItemProps) {
   return (
     <div className="flex items-center gap-3 py-3.5 border-b border-brand-cream-dark last:border-0">
       {/* Indicador de categoría */}
-      <div className="w-10 h-10 rounded-xl bg-brand-cream-dark flex-shrink-0 flex items-center justify-center text-lg">
+      <div className="w-10 h-10 rounded-xl bg-brand-cream-dark flex-shrink-0 flex items-center justify-center text-brand-red">
         {product.category === 'pizzas'
-          ? '🍕'
+          ? <Pizza className="w-5 h-5" />
           : product.category === 'focaccias'
-            ? '🫓'
-            : '🥙'}
+            ? <Wheat className="w-5 h-5" />
+            : <UtensilsCrossed className="w-5 h-5" />}
       </div>
 
       {/* Info */}
@@ -35,20 +36,20 @@ export function CartItem({ item }: CartItemProps) {
       <div className="flex items-center gap-1.5 flex-shrink-0">
         <button
           onClick={() => updateQuantity(product.id, quantity - 1)}
-          className="w-7 h-7 rounded-lg bg-brand-cream-dark text-brand-dark flex items-center justify-center hover:bg-brand-red hover:text-white active:scale-95 transition-all duration-150 font-bold text-base leading-none"
+          className="w-7 h-7 rounded-lg bg-brand-cream-dark text-brand-dark flex items-center justify-center hover:bg-brand-red hover:text-white active:scale-95 transition-all duration-150"
           aria-label="Quitar uno"
         >
-          −
+          <Minus className="w-3.5 h-3.5" strokeWidth={2.5} />
         </button>
         <span className="w-5 text-center font-bold text-brand-dark text-sm">
           {quantity}
         </span>
         <button
           onClick={() => updateQuantity(product.id, quantity + 1)}
-          className="w-7 h-7 rounded-lg bg-brand-green text-white flex items-center justify-center hover:bg-opacity-90 active:scale-95 transition-all duration-150 font-bold text-base leading-none"
+          className="w-7 h-7 rounded-lg bg-brand-green text-white flex items-center justify-center hover:bg-opacity-90 active:scale-95 transition-all duration-150"
           aria-label="Agregar uno"
         >
-          +
+          <Plus className="w-3.5 h-3.5" strokeWidth={2.5} />
         </button>
       </div>
 

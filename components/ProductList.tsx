@@ -1,3 +1,4 @@
+import { Pizza } from 'lucide-react';
 import { ProductCard } from './ProductCard';
 import type { Product } from '@/types/product';
 
@@ -15,7 +16,7 @@ export function ProductList({
   if (products.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center">
-        <div className="text-4xl mb-3 opacity-40">🍕</div>
+        <Pizza className="w-10 h-10 mb-3 text-brand-dark opacity-20" strokeWidth={1} />
         <p className="text-gray-400 font-medium text-sm">{emptyMessage}</p>
       </div>
     );
