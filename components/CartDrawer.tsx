@@ -186,6 +186,11 @@ export function CartDrawer() {
                       : 'border-brand-cream-dark focus:border-brand-green'
                   }`}
                 />
+                {needsAddress && (
+                  <p className="text-xs text-brand-red/70 mt-1.5 ml-1">
+                    Ingresá tu dirección para continuar
+                  </p>
+                )}
               </div>
             )}
 
@@ -201,18 +206,13 @@ export function CartDrawer() {
                 id="cart-notes"
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                placeholder="Sin aceitunas, extra queso, sin sal gruesa..."
+                placeholder="Ej: portón verde, sin timbre, entre Mitre y Belgrano..."
                 className="w-full bg-white border border-brand-cream-dark rounded-xl px-3 py-2.5 text-sm text-brand-dark placeholder:text-gray-400 resize-none focus:outline-none focus:border-brand-green transition-colors duration-150"
                 rows={2}
               />
             </div>
 
             {/* Botón WhatsApp */}
-            {needsAddress && (
-              <p className="text-xs text-center text-brand-red/70 -mb-1">
-                Ingresá tu dirección para continuar
-              </p>
-            )}
             <button
               onClick={handleWhatsApp}
               disabled={needsAddress}
