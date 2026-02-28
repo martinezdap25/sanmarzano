@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
 export function Hero() {
@@ -10,6 +11,18 @@ export function Hero() {
       {/* Círculos decorativos */}
       <div className="absolute -top-20 -right-20 w-72 h-72 bg-brand-red opacity-10 rounded-full" />
       <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-brand-red opacity-5 rounded-full" />
+
+      {/* Logo decorativo de fondo */}
+      <div className="absolute -left-10 w-96 sm:w-104 opacity-[0.07] pointer-events-none select-none" aria-hidden="true">
+        <Image
+          src="/images/LogoSanMarzanoBlanco.png"
+          alt=""
+          width={416}
+          height={416}
+          loading="eager"
+          className="object-contain w-full h-auto"
+        />
+      </div>
 
       {/* Línea decorativa top */}
       <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-brand-red to-transparent opacity-40" />

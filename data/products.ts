@@ -68,7 +68,7 @@ export const products: Product[] = [
     name: 'Focaccia Italiana',
     description: 'Mozzarella, tomate fresco y orégano. Suave, fresca y bien mediterránea.',
     price: 8500,
-    image: '/images/focaccia-italiana.jpg',
+    image: 'https://res.cloudinary.com/dsugc0qfa/image/upload/v1772320222/ChatGPT_Image_28_feb_2026_08_07_57_p.m._yrpjm2.png',
     category: 'focaccias',
     featured: true,
   },
