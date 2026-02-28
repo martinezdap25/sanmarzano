@@ -19,11 +19,11 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: 'San Marzano – Pizzería Italiana',
   description:
-    'Las mejores pizzas artesanales de Buenos Aires. Pedí tu pizza favorita y recibila en tu casa o retirá en el local.',
+    'Sabor italiano en Santiago del Estero. Pizzas napolitanas artesanales para retirar en el local o recibir en casa.',
   openGraph: {
     title: 'San Marzano – Pizzería Italiana',
     description:
-      'Las mejores pizzas artesanales de Buenos Aires. Pedí tu pizza favorita y recibila en tu casa o retirá en el local.',
+      'Sabor italiano en Santiago del Estero. Pizzas napolitanas artesanales para retirar en el local o recibir en casa.',
     type: 'website',
   },
 };

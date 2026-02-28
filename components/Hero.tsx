@@ -20,7 +20,7 @@ export function Hero() {
         <div className="flex items-center justify-center gap-3 mb-5">
           <div className="h-px w-10 bg-brand-red opacity-50" />
           <span className="text-brand-red text-xs tracking-[0.3em] uppercase font-semibold">
-            Desde 1985 · Buenos Aires
+            Pizzería Napolitana · Santiago del Estero
           </span>
           <div className="h-px w-10 bg-brand-red opacity-50" />
         </div>
@@ -42,7 +42,7 @@ export function Hero() {
 
         {/* Subtítulo */}
         <p className="text-white/60 text-sm sm:text-base max-w-xs sm:max-w-sm mx-auto mb-8 leading-relaxed">
-          Elegí tus pizzas y focaccias preferidas y armá tu pedido
+          Sabor italiano en Santiago del Estero. Armá tu pedido y retirá en el local o recibilo en casa.
         </p>
 
         {/* CTA */}
